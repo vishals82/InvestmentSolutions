@@ -21,6 +21,7 @@ import { DetailReportComponent } from './detailreport/detailreport';
 import { ContactUsComponent } from './contactus/contactus';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogInComponent } from './login/login';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { LogInComponent } from './login/login';
     MatCardModule, MatRadioModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule, ChartsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

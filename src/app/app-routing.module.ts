@@ -7,6 +7,7 @@ import { RegistrationComponent } from './registration/registration';
 import { ReportComponent } from './report/report';
 import { DetailReportComponent } from './detailreport/detailreport';
 import { LogInComponent } from './login/login';
+import { AboutUsComponent } from './aboutus/aboutus';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'report', component: ReportComponent },
   { path: 'detail-report', component: DetailReportComponent },
+  { path: 'aboutus', component: AboutUsComponent },
   { path: 'login', component: LogInComponent },
   { path: '**', redirectTo: 'home' }
 ];

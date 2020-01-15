@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
                     <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button matStepperNext>Next</button>
                 </div>
                 </form>
             </mat-step>
@@ -23,8 +23,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
                     <input matInput placeholder="Address" formControlName="secondCtrl" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button matStepperNext>Next</button>
                 </div>
                 </form>
             </mat-step>
@@ -39,8 +39,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
                     </mat-radio-group>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button matStepperNext>Next</button>
                 </div>
                 </form>
             </mat-step>
@@ -48,14 +48,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
                 <ng-template matStepLabel>Done</ng-template>
                 You are now done.
                 <div style="padding-top: 32px;">
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button routerLink="/report">Submit</button>
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button routerLink="/report">Submit</button>
                 </div>
             </mat-step>
         </mat-vertical-stepper>
   `,
     styles: [
         `
+         .mat-raised-button {
+             margin: 5px 5px;
+         }
       `
     ]
 })

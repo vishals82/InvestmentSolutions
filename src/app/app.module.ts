@@ -22,6 +22,7 @@ import { ContactUsComponent } from './contactus/contactus';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogInComponent } from './login/login';
 import { ChartsModule } from 'ng2-charts';
+import { AboutUsComponent } from './aboutus/aboutus';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { ChartsModule } from 'ng2-charts';
     ReportComponent,
     DetailReportComponent,
     ContactUsComponent,
-    LogInComponent
+    LogInComponent, AboutUsComponent
   ],
   imports: [
     BrowserModule,

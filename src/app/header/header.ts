@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-header',
     template: `
-        <mat-toolbar color="primary">
+        <mat-toolbar >
             <a routerLink="/home" routerLinkActive="active">Home</a>
             <span class="fill-remaining-space"></span>
             <a routerLink="/questionair" routerLinkActive="active">Start</a>
@@ -23,6 +23,9 @@ import { Component } from '@angular/core';
       }
       a.active {
           color: white;
+      }
+      mat-toolbar {
+        background-color: #1976d2;
       }
       `
   ]

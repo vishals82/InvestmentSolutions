@@ -18,26 +18,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
                 <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Fill out your address</ng-template>
-                <mat-form-field>
-                    <input matInput placeholder="Address" formControlName="secondCtrl" required>
-                </mat-form-field>
-                <div>
-                    <button mat-raised-button matStepperPrevious>Back</button>
-                    <button mat-raised-button matStepperNext>Next</button>
-                </div>
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button matStepperPrevious>Back</button>
+                        <button mat-raised-button matStepperNext>Next</button>
+                    </div>
                 </form>
             </mat-step>
             <mat-step [stepControl]="thirdFormGroup">
                 <form [formGroup]="thirdFormGroup">
                 <ng-template matStepLabel>Risk</ng-template>
-                <mat-form-field>
-                    <input matInput placeholder="Risk" formControlName="thirdCtrl" required>
-                    <mat-radio-group aria-label="Select an option">
-                        <mat-radio-button value="1">High</mat-radio-button>
-                        <mat-radio-button value="2">Low</mat-radio-button>
+                    <mat-radio-group style="display: flex;flex-direction: column;" formControlName="thirdCtrl" aria-label="Select an option">
+                        <mat-radio-button style="padding: 8px;" value="1">High</mat-radio-button>
+                        <mat-radio-button style="padding: 8px;" value="3">Medium</mat-radio-button>
+                        <mat-radio-button style="padding: 8px;" value="2">Low</mat-radio-button>
                     </mat-radio-group>
-                </mat-form-field>
                 <div>
                     <button mat-raised-button matStepperPrevious>Back</button>
                     <button mat-raised-button matStepperNext>Next</button>

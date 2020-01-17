@@ -11,11 +11,13 @@ import { MultiDataSet, Label } from 'ng2-charts';
                 <canvas baseChart
                     [data]="doughnutChartData"
                     [labels]="doughnutChartLabels"
-                    [chartType]="doughnutChartType">
+                    [chartType]="doughnutChartType"
+                    >
                 </canvas>
                 </div>
             </div>
         </div>
+        <a style="margin: 16px;" mat-raised-button routerLink="/detail-report">Get Detailed report</a>
   `,
   styles: [
       `

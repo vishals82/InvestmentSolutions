@@ -8,6 +8,7 @@ import { ReportComponent } from './report/report';
 import { DetailReportComponent } from './detailreport/detailreport';
 import { LogInComponent } from './login/login';
 import { AboutUsComponent } from './aboutus/aboutus';
+import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'detail-report', component: DetailReportComponent },
   { path: 'aboutus', component: AboutUsComponent },
   { path: 'login', component: LogInComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

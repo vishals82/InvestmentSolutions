@@ -25,6 +25,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AboutUsComponent } from './aboutus/aboutus';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
 
 let config = new AuthServiceConfig([
   {
@@ -52,7 +53,7 @@ export function provideConfig() {
     ReportComponent,
     DetailReportComponent,
     ContactUsComponent,
-    LogInComponent, AboutUsComponent
+    LogInComponent, AboutUsComponent, ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

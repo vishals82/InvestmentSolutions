@@ -4,52 +4,11 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 import { UserService } from '../userService';
 import { FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../myErrorStateMatcher';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
-    template: `
-
-    <div class="example-container">
-
-    <mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>Log In</mat-card-title>
-    </mat-card-header>
-    <mat-card-content style="display: flex; flex-direction: column;">
-        <mat-form-field>
-            <input matInput type="email" placeholder="Email" [formControl]="emailFormControl"
-                required [errorStateMatcher]="matcher">
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput type="password" [formControl]="passwordFormControl"
-                placeholder="Password" required [errorStateMatcher]="matcher" >
-            <mat-error *ngIf="passwordFormControl.hasError('required')">
-                Password is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-        <div style="display: flex;justify-content: flex-end;">
-            <button mat-button>Forgot Password</button>
-            <button mat-button>Reset</button>
-            <button mat-raised-button (click)="onLogin()">Log In</button>
-        </div>
-        <mat-divider style="margin: 8px 0;"></mat-divider>
-        <div style="margin-top: 16px;display: flex;justify-content: center;">
-            <button style="margin: 0 8px 0 0;" mat-button (click)="signInWithGoogle()">Log In using Google</button>
-            <button style="margin: 0 0 0 8px;" mat-button (click)="signInWithFaceBook()">Log In using Facebook</button>
-        </div>
-    </mat-card-actions>
-</mat-card>
-</div>
-  `,
+    templateUrl: './login.html',
     styles: [
         `
      .example-container {
@@ -94,7 +53,7 @@ export class LogInComponent {
     matcher = new MyErrorStateMatcher();
 
     constructor(private authService: AuthService,
-        private userService: UserService) { }
+        private userService: UserService, private router: Router) { }
 
     ngOnInit() {
         console.log('LogInComponent');
@@ -113,9 +72,17 @@ export class LogInComponent {
     }
 
     onLogin() {
-
+        this.router.navigate(['./home']);
     }
+
     signOut(): void {
         this.authService.signOut();
+        this.userService.user = null;
+        this.userService.loggedIn = false;
+    }
+
+    onReset() {
+        this.emailFormControl.setValue('');
+        this.passwordFormControl.setValue('');
     }
 }

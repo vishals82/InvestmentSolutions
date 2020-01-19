@@ -2,17 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-header',
-    template: `
-        <mat-toolbar >
-            <a routerLink="/home" routerLinkActive="active">Home</a>
-            <span class="fill-remaining-space"></span>
-            <a routerLink="/questionair" routerLinkActive="active">Start</a>
-            <a routerLink="/login" routerLinkActive="active">Log In</a>
-            <a routerLink="/register" routerLinkActive="active">Sign Up</a>
-            <a routerLink="/aboutus" routerLinkActive="active">About us</a>
-            <a routerLink="/contactus" routerLinkActive="active">Contact us</a>
-        </mat-toolbar>
-  `,
+    templateUrl: './header.html',
   styles: [
       `
       .fill-remaining-space {

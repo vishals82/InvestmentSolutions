@@ -121,7 +121,10 @@ const ELEMENT_DATA: FundDetails[] = [
         font-size: medium;
       }
       th.mat-sort-header-sorted {
-        color: black;
+        color: white;
+      }
+      ::ng-deep .mat-sort-header-arrow {
+        color: white;
       }
       tr.mat-row {
           color: black;
@@ -133,6 +136,9 @@ const ELEMENT_DATA: FundDetails[] = [
       td {
           color: inherit;
       }
+      td.mat-cell {
+        padding: 0 8px;
+    }
       `
     ]
 })

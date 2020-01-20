@@ -1,0 +1,52 @@
+<table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> اسم الصندوق </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- manager Column -->
+    <ng-container matColumnDef="manager">
+      <th mat-header-cell *matHeaderCellDef> مدير الصندوق </th>
+      <td mat-cell *matCellDef="let element"> {{element.manager}} </td>
+    </ng-container>
+  
+    <!-- objective Column -->
+    <ng-container matColumnDef="objective">
+      <th mat-header-cell *matHeaderCellDef> هدف الصندوق </th>
+      <td mat-cell *matCellDef="let element"> {{element.objective}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="one_year_change">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تغير خلال سنة ٪</th>
+        <td mat-cell *matCellDef="let element"> {{element.one_year_change}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="three_year_change">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تغير خلال 3 سنوات ٪ </th>
+        <td mat-cell *matCellDef="let element"> {{element.three_year_change}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="five_year_change">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تغير خلال 5 سنوات ٪ </th>
+        <td mat-cell *matCellDef="let element"> {{element.five_year_change}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ten_year_change">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تغير خلال 10 سنوات ٪ </th>
+        <td mat-cell *matCellDef="let element"> {{element.ten_year_change}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

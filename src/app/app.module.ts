@@ -9,7 +9,7 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule
+  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule, MatTableModule, MatSortModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header';
 import { FooterComponent } from './footer/footer';
@@ -26,6 +26,7 @@ import { AboutUsComponent } from './aboutus/aboutus';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
+import { FundSuggestionsComponent } from './fund-suggestions/fund-suggestions';
 
 let config = new AuthServiceConfig([
   {
@@ -53,7 +54,8 @@ export function provideConfig() {
     ReportComponent,
     DetailReportComponent,
     ContactUsComponent,
-    LogInComponent, AboutUsComponent, ForgotPasswordComponent
+    LogInComponent, AboutUsComponent,
+    ForgotPasswordComponent, FundSuggestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ export function provideConfig() {
     MatCardModule, MatRadioModule,
     MatStepperModule,
     MatFormFieldModule,MatDividerModule,
-    MatInputModule, ChartsModule, SocialLoginModule
+    MatInputModule, ChartsModule, SocialLoginModule,
+    MatTableModule, MatSortModule 
   ],
   providers: [{
     provide: AuthServiceConfig,

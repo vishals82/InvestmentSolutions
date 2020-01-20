@@ -9,6 +9,7 @@ import { DetailReportComponent } from './detailreport/detailreport';
 import { LogInComponent } from './login/login';
 import { AboutUsComponent } from './aboutus/aboutus';
 import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
+import { FundSuggestionsComponent } from './fund-suggestions/fund-suggestions';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutUsComponent },
   { path: 'login', component: LogInComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'fund-suggestions', component: FundSuggestionsComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

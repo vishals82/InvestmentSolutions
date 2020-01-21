@@ -9,7 +9,7 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule, MatTableModule, MatSortModule
+  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule, MatTableModule, MatSortModule, MatSnackBarModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header';
 import { FooterComponent } from './footer/footer';
@@ -28,20 +28,24 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-logi
 import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
 import { FundSuggestionsComponent } from './fund-suggestions/fund-suggestions';
 
+// let google_client_id = '624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com';
+// let google_client_id = '529466104931-mfanjdlog1q9gkeial49uqo05979fod4.apps.googleusercontent.com';
+let google_client_id = '734265172462-i702p9gcebq1p66s497ls8geomv99vie.apps.googleusercontent.com';
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider(google_client_id)
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
+    provider: new FacebookLoginProvider("2194283764212759")
   }
 ]);
 
-export function provideConfig() {
-  return config;
-}
+// export function provideConfig() {
+//   return config;
+// }
 
 @NgModule({
   declarations: [
@@ -60,21 +64,21 @@ export function provideConfig() {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,ReactiveFormsModule,
+    BrowserAnimationsModule, ReactiveFormsModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule, MatRadioModule,
     MatStepperModule,
-    MatFormFieldModule,MatDividerModule,
-    MatInputModule, ChartsModule, SocialLoginModule,
-    MatTableModule, MatSortModule 
+    MatFormFieldModule, MatDividerModule,
+    MatInputModule, ChartsModule,
+    MatTableModule, MatSortModule, 
+    SocialLoginModule.initialize(config),
+    MatSnackBarModule
   ],
-  providers: [{
-    provide: AuthServiceConfig,
-    useFactory: provideConfig
-  }],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

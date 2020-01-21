@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserService } from '../userService';
+import { AuthService } from 'angularx-social-login';
+import { SnackBar } from '../snackbar';
 
 @Component({
     selector: 'app-header',
@@ -17,9 +20,23 @@ import { Component } from '@angular/core';
       mat-toolbar {
         background-color: #1976d2;
       }
+      a.sign-out {
+        color: -webkit-link;
+        cursor: pointer;
+        text-decoration: underline;
+      }
       `
   ]
 })
 export class HeaderComponent {
     title = 'header';
+    constructor(public userService: UserService, private authService: AuthService,
+      private snackBar: SnackBar) { }
+
+    onLogOut() {
+      this.authService.signOut();
+      this.userService.user = null;
+      this.userService.loggedIn = false;
+      this.snackBar.show(`Logged out`);
+    }
 }

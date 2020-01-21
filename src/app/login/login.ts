@@ -5,6 +5,7 @@ import { UserService } from '../userService';
 import { FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../myErrorStateMatcher';
 import { Router } from '@angular/router';
+import { SnackBar } from '../snackbar';
 
 @Component({
     selector: 'app-login',
@@ -53,17 +54,23 @@ export class LogInComponent {
     matcher = new MyErrorStateMatcher();
 
     constructor(private authService: AuthService,
-        private userService: UserService, private router: Router) { }
+        private userService: UserService, private router: Router,
+        private snackBar: SnackBar) { }
 
     ngOnInit() {
-        console.log('LogInComponent');
         this.authService.authState.subscribe((user) => {
+            console.log('Logged In', user);
+            if(user != null) {
             this.userService.user = user;
+            
             this.userService.loggedIn = (user != null);
+            this.snackBar.show(`Welcome ${this.userService.user.name}`);
+            }
         });
     }
 
     signInWithGoogle(): void {
+        console.log('Calll SignIN with Google');
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     }
 
@@ -79,6 +86,7 @@ export class LogInComponent {
         this.authService.signOut();
         this.userService.user = null;
         this.userService.loggedIn = false;
+        this.snackBar.show(`Logged out`);
     }
 
     onReset() {

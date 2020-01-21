@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../myErrorStateMatcher';
 import { Router } from '@angular/router';
+import { SnackBar } from '../snackbar';
 
 @Component({
     selector: 'app-contactus',
@@ -52,9 +53,10 @@ export class ContactUsComponent {
 
     matcher = new MyErrorStateMatcher();
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private snackBar: SnackBar) {}
 
     onSubmit() {
+        this.snackBar.show('Your request is submitted, We will contact you shortly');
         this.router.navigate(['./home']);
     }
 }

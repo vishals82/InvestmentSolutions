@@ -8,4 +8,9 @@
   <a *ngIf="userService.loggedIn" class="sign-out" (click)="onLogOut()">Log Out</a>
   <a routerLink="/aboutus" routerLinkActive="active">About us</a>
   <a routerLink="/contactus" routerLinkActive="active">Contact us</a>
+  <div *ngIf="userService.loggedIn"
+   style="display: flex;flex-direction: column;line-height: 1;color: white;font-size: small;font-weight: 400;">
+    <i class="material-icons" style="align-self: center;">account_circle</i>
+    <div> {{ userService.user?.name }} </div>
+  </div>
 </mat-toolbar>

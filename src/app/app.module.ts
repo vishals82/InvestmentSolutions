@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LogInComponent } from './login/login';
 import { ChartsModule } from 'ng2-charts';
 import { AboutUsComponent } from './aboutus/aboutus';
-import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { SocialLoginModule, AuthServiceConfig, AuthService } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { ForgotPasswordComponent } from './forgotPassword/forgotPassword';
 import { FundSuggestionsComponent } from './fund-suggestions/fund-suggestions';
@@ -31,6 +31,7 @@ import { FundSuggestionsComponent } from './fund-suggestions/fund-suggestions';
 // let google_client_id = '624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com';
 // let google_client_id = '529466104931-mfanjdlog1q9gkeial49uqo05979fod4.apps.googleusercontent.com';
 let google_client_id = '734265172462-i702p9gcebq1p66s497ls8geomv99vie.apps.googleusercontent.com';
+let facebook_client_id = "2194283764212759";
 
 let config = new AuthServiceConfig([
   {
@@ -39,13 +40,13 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("2194283764212759")
+    provider: new FacebookLoginProvider(facebook_client_id)
   }
 ]);
 
-// export function provideConfig() {
-//   return config;
-// }
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -74,10 +75,24 @@ let config = new AuthServiceConfig([
     MatFormFieldModule, MatDividerModule,
     MatInputModule, ChartsModule,
     MatTableModule, MatSortModule, 
-    SocialLoginModule.initialize(config),
+    SocialLoginModule, 
+    // SocialLoginModule.initialize(new AuthServiceConfig([
+    //   {
+    //     id: GoogleLoginProvider.PROVIDER_ID,
+    //     provider: new GoogleLoginProvider(google_client_id)
+    //   },
+    //   {
+    //     id: FacebookLoginProvider.PROVIDER_ID,
+    //     provider: new FacebookLoginProvider(facebook_client_id)
+    //   }
+    // ])),
     MatSnackBarModule
   ],
   providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

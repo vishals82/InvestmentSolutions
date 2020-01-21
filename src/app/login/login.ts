@@ -39,6 +39,11 @@ import { SnackBar } from '../snackbar';
       mat-card-actions {
           padding: 16px;
       }
+      span.brand{
+        font-size: large;
+        color: #1976d2;
+        padding-right: 8px;
+      }
       `
     ]
 })
@@ -59,12 +64,12 @@ export class LogInComponent {
 
     ngOnInit() {
         this.authService.authState.subscribe((user) => {
-            console.log('Logged In', user);
-            if(user != null) {
-            this.userService.user = user;
-            
-            this.userService.loggedIn = (user != null);
-            this.snackBar.show(`Welcome ${this.userService.user.name}`);
+            if (user != null) {
+                console.log('Logged In', user.name);
+                this.userService.user = user;
+                this.userService.loggedIn = (user != null);
+                this.snackBar.show(`Welcome ${this.userService.user.name}`);
+                this.router.navigate(['./home']);
             }
         });
     }

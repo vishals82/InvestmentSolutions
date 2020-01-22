@@ -9,7 +9,7 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule, MatTableModule, MatSortModule, MatSnackBarModule
+  MatCardModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatDividerModule, MatTableModule, MatSortModule, MatSnackBarModule, MatSelectModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header';
 import { FooterComponent } from './footer/footer';
@@ -86,7 +86,7 @@ export function provideConfig() {
     //     provider: new FacebookLoginProvider(facebook_client_id)
     //   }
     // ])),
-    MatSnackBarModule
+    MatSnackBarModule, MatSelectModule
   ],
   providers: [
     {

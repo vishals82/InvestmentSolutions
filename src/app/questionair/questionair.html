@@ -1,12 +1,13 @@
 <div dir="RTL">
-  <mat-vertical-stepper [linear]="isLinear">
-    <mat-step [stepControl]="thirdFormGroup" *ngFor="let question of questions;let first = first; let last = last">
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="thirdFormGroup" *ngFor="let question of questions; let first = first; let last = last">
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>{{ question.question }}</ng-template>
         <mat-radio-group style="display: flex;flex-direction: column;" 
         formControlName="thirdCtrl"
           aria-label="Select an option">
-          <mat-radio-button *ngFor="let option of question.options" style="padding: 8px;" [value]="option">{{ option }}
+          <mat-radio-button *ngFor="let option of question.options; let i = index;" style="padding: 8px;" 
+          [value]="i + 1" (click)="stepper.next()">{{ option }}
           </mat-radio-button>
         </mat-radio-group>
         <div>

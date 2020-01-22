@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
 
 export interface FundDetails {
     name: string;
@@ -138,18 +139,40 @@ const ELEMENT_DATA: FundDetails[] = [
       }
       td.mat-cell {
         padding: 0 8px;
-    }
+      }
       `
     ]
 })
 export class FundSuggestionsComponent {
-    displayedColumns: string[] = ['position', 'name', 'manager', 'objective', 'one_year_change', 'three_year_change', 'five_year_change', 'ten_year_change'];
-    dataSource = new MatTableDataSource(ELEMENT_DATA);
+    // displayedColumns: string[] = ['position', 'name', 'manager', 'objective', 'one_year_change', 'three_year_change', 'five_year_change', 'ten_year_change'];
+    displayedColumns: string[] = [
+        'ten_year_change', 'five_year_change', 'three_year_change',
+        'one_year_change', 'objective', 'manager',    
+        'name', 'position'        
+        ];
+    
 
+    dataSource = new MatTableDataSource(ELEMENT_DATA);
+    objectives = new FormControl();
     @ViewChild(MatSort, { static: true }) sort: MatSort;
+    objectiveList: string[] = [];
 
     ngOnInit() {
         this.dataSource.sort = this.sort;
         console.log('Enable sorting');
+        this.objectiveList = [];
+
+        ELEMENT_DATA.forEach(data => {
+            if(!this.objectiveList.includes(data.objective)) {
+                this.objectiveList.push(data.objective);
+            }
+        });
+
+        this.objectives.valueChanges.subscribe(value => {
+            // console.log('After Change', value);
+            // let selectedValues = value.split(',');
+            let data = ELEMENT_DATA.filter(e => value.includes(e.objective));
+            this.dataSource.data = data;
+        });
     }
 }
